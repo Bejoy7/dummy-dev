@@ -70,6 +70,7 @@ jobs:
         id: auth
         uses: 'google-github-actions/auth@v0'
         with:
+          workload_identity_provider: https://iam.googleapis.com/projects/985671494440/locations/global/workloadIdentityPools/githubpool/providers/github
           service_account: '${{ secrets.WIF_SERVICE_ACCOUNT }}' # e.g. - my-service-account@my-project.iam.gserviceaccount.com
 
       # NOTE: Alternative option - authentication via credentials json
