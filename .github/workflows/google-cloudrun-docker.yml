@@ -85,6 +85,7 @@ jobs:
       # Authenticate Docker to Google Cloud Artifact Registry
       - name: Docker Auth
         run: |-
+          gcloud auth login --no-launch-browser
           gcloud auth configure-docker --quiet
           gcloud auth configure-docker us-central1-docker.pkg.dev --quiet
         # id: docker-auth
