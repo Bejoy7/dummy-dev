@@ -84,15 +84,14 @@ jobs:
 
       # Authenticate Docker to Google Cloud Artifact Registry
       - name: Docker Auth
-        run: |-
-          gcloud auth login --no-browser
-          gcloud auth configure-docker us-central1-docker.pkg.dev --quiet
-        # id: docker-auth
-        # uses: 'docker/login-action@v1'
-        # with:
-        #   username: 'oauth2accesstoken'
-        #   password: 'b2F1dGgyYWNjZXNzdG9rZW46eWEyOS5hMEFmQl9ieUFEVEtVY0xzc3I3TlIwR2E0MHdaNUJMa01NOFpKSjFtYkRyZlBubVREZjRuQTE3LWRvUS0tbGlkS0xib2djZGo2Nm5CNlhrVnUtbVFQWHhNQWZXWE5uaXNqZUwwQmIzZDE1VTlwWjF1bDJOdFBXTU9pTXBKWE9vT3lHbVVOTDhOd3dlb0RzM0xiN0ZiQzF6WTMyVi1vcDQ4YWhaS1pIUXFHaHJxS3JCU3IxWExtRUt0M0hYb0VUdkJsYXpucjRKR3NhQkRBOG5ZaUZTU2hBeU1HdndudmV6dXR4WWtPRnFCRGRTYlJzNDNVQkhNeVo0YWFXdEtWaUJNLUx4aWNkd000cDZMcDFkaGQwSlM0ZUdmY3M3Smh2NWJDbVJMS2VrMkhBQTNpYWNieXd6WkdCVXNNaHhYeDlGWVB4S1ZWVWYyUUNZZkplVTAyYW1qb0JyeEFUQzYydGpZeC1EbmFQUUFJSkhNMTdUS0lKcnFuTHJ2QWw1UjFOWnRhNVhXSkFqUHdnekJJYjgzQmlZVjYyRmVMVmM0VDlBVWpDYUNnWUtBZVVTQVJNU0ZRSEdYMk1pV0ZXZVVsdjNIVWJ5WUdxNkxBaDh4dzA0MjM'
-        #   registry: 'us-central1-docker.pkg.dev'
+        # run: |-
+        #   gcloud auth configure-docker us-central1-docker.pkg.dev --quiet
+        id: docker-auth
+        uses: 'docker/login-action@v1'
+        with:
+          username: 'oauth2accesstoken'
+          password: 'b2F1dGgyYWNjZXNzdG9rZW46eWEyOS5hMEFmQl9ieUFEVEtVY0xzc3I3TlIwR2E0MHdaNUJMa01NOFpKSjFtYkRyZlBubVREZjRuQTE3LWRvUS0tbGlkS0xib2djZGo2Nm5CNlhrVnUtbVFQWHhNQWZXWE5uaXNqZUwwQmIzZDE1VTlwWjF1bDJOdFBXTU9pTXBKWE9vT3lHbVVOTDhOd3dlb0RzM0xiN0ZiQzF6WTMyVi1vcDQ4YWhaS1pIUXFHaHJxS3JCU3IxWExtRUt0M0hYb0VUdkJsYXpucjRKR3NhQkRBOG5ZaUZTU2hBeU1HdndudmV6dXR4WWtPRnFCRGRTYlJzNDNVQkhNeVo0YWFXdEtWaUJNLUx4aWNkd000cDZMcDFkaGQwSlM0ZUdmY3M3Smh2NWJDbVJMS2VrMkhBQTNpYWNieXd6WkdCVXNNaHhYeDlGWVB4S1ZWVWYyUUNZZkplVTAyYW1qb0JyeEFUQzYydGpZeC1EbmFQUUFJSkhNMTdUS0lKcnFuTHJ2QWw1UjFOWnRhNVhXSkFqUHdnekJJYjgzQmlZVjYyRmVMVmM0VDlBVWpDYUNnWUtBZVVTQVJNU0ZRSEdYMk1pV0ZXZVVsdjNIVWJ5WUdxNkxBaDh4dzA0MjM'
+          registry: 'us-central1-docker.pkg.dev'
 
       - name: Build and Push Container
         run: |-
